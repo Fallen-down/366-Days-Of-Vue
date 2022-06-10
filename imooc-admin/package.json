@@ -25,6 +25,7 @@
     "@vue/eslint-config-standard": "^6.1.0",
     "babel-plugin-import": "^1.13.5",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "cz-customizable": "^6.3.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
@@ -36,5 +37,8 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
+  },
+  "commitizen": {
+    "path": "node_modules/cz-customizable"
   }
 }

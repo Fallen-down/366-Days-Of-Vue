@@ -4,6 +4,4 @@
   </div>
 </template>
 <script>
-function a() {}
-a()
 </script>
