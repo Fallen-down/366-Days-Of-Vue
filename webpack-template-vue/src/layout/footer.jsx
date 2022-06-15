@@ -1,4 +1,4 @@
-import styles from '@/assets/styles/footer.scss'
+import '@/assets/styles/footer.scss'
 
 export default {
   data() {
@@ -8,7 +8,7 @@ export default {
   },
   render() {
     return (
-      <div id={styles.footer}>
+      <div id="footer">
         <span>Written by {this.author}</span>
       </div>
     )
