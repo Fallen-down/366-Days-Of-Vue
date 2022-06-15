@@ -1,16 +1,9 @@
 import '@/assets/styles/footer.scss'
+import { defineComponent, ref } from 'vue'
 
-export default {
-  data() {
-    return {
-      author: 'Jokcy',
-    }
+export default defineComponent({
+  setup() {
+    const author = ref('Jokcy')
+    return () => <div id="footer">Written by {author.value}</div>
   },
-  render() {
-    return (
-      <div id="footer">
-        <span>Written by {this.author}</span>
-      </div>
-    )
-  },
-}
+})

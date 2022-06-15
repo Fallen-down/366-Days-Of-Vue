@@ -38,21 +38,7 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/i,
         oneOf: [
-          {
-            use: [
-              isProductionMode
-                ? {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                      esModule: false,
-                    },
-                  }
-                : 'vue-style-loader',
-              'css-loader',
-              'postcss-loader',
-              'sass-loader',
-            ],
-          },
+          // 这里匹配 `<style module>`
           {
             resourceQuery: /module/,
             use: [
@@ -70,9 +56,25 @@ module.exports = {
                   // 开启 CSS Modules
                   modules: true,
                   // 自定义生成的类名
-                  localIdentName: '[local]_[hash:base64:5]',
+                  // localIdentName: '[local]_[hash:base64:5]',
                 },
               },
+              'postcss-loader',
+              'sass-loader',
+            ],
+          },
+          {
+            use: [
+              isProductionMode
+                ? {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                      esModule: false,
+                    },
+                  }
+                : 'vue-style-loader',
+
+              'css-loader',
               'postcss-loader',
               'sass-loader',
             ],
