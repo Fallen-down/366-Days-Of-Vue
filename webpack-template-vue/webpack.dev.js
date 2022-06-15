@@ -8,13 +8,31 @@ module.exports = merge(common, {
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
-    static: "./dist",
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
+    historyApiFallback: true,
     hot: true,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+        pathRewrite: { "^/api": "" },
+      },
+    },
+    static: "./dist",
   },
   output: {
     filename: "[name].js",
   },
-  plugins: [new webpack.DefinePlugin(ENV_DEV)],
+  plugins: [
+    // 热加载
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin(ENV_DEV),
+  ],
   optimization: {
     runtimeChunk: "single",
   },

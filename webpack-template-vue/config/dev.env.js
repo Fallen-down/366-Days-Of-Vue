@@ -1,3 +1,3 @@
 module.exports = {
-  baseUlr: JSON.stringify([{ b: 1 }]),
+  baseURL: JSON.stringify("http://ip"),
 };

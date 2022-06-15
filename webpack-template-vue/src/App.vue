@@ -1,18 +1,25 @@
 <template>
-  <nav>
+  <div id="cover"></div>
+  <THeader />
+  <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+    </nav>
+    <router-view /> -->
+  <Todo />
+  <TFooter />
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style lang="scss" scoped>
+#cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #999;
+  opacity: 0.9;
+  z-index: -1;
 }
 
 nav {
@@ -28,3 +35,17 @@ nav {
   }
 }
 </style>
+<script>
+import TFooter from '@/layout/footer.jsx'
+import THeader from '@/layout/header.vue'
+import Todo from '@/views/todo/todo.vue'
+
+export default {
+  components: {
+    THeader,
+    TFooter,
+    Todo,
+  },
+}
+// console.log(process.env.NODE_ENV);
+</script>

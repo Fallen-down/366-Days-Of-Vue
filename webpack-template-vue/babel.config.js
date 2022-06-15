@@ -11,6 +11,8 @@ const presets = [
 ];
 
 const plugins = [
+  // 以 JSX 的方式来编写 Vue 代码
+  "@vue/babel-plugin-jsx",
   "@babel/plugin-transform-runtime", // 重用 Babel 注入的助手代码来节省 codeize。
   "@babel/plugin-proposal-object-rest-spread", // ES2018
 ];
